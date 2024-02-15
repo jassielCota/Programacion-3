@@ -19,7 +19,7 @@ public class Main {
 		ventana.setMinimumSize(new Dimension(450,450));
 		
 		
-		ventana.setResizable(false);
+		ventana.setResizable(true);
 		//es para poder cerrar la venta por defecto
 		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
