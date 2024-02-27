@@ -39,7 +39,8 @@ public class Ventana extends JFrame {
 		
 		//this.login();
 		//this.registro();
-		this.admin();
+		//this.admin();
+		this.cal();
 	}
 	public void login() {
 		JPanel login=new JPanel();
@@ -295,4 +296,101 @@ public class Ventana extends JFrame {
 		
 	}
 
+	public void cal() {
+		JPanel cal_panel =new JPanel();
+		cal_panel.setSize(280,400);
+		cal_panel.setLocation(0,0);
+		cal_panel.setBackground(Color.gray);
+		cal_panel.setLayout(null);
+		this.add(cal_panel);
+		
+		JLabel capturaNum=new JLabel("0");
+		capturaNum.setSize(240,35);
+		capturaNum.setFont(new Font("Arial",Font.BOLD,20));
+		capturaNum.setLocation(20,20);
+		capturaNum.setOpaque(true);
+		capturaNum.setBackground(Color.blue);
+		capturaNum.setLayout(null);
+		cal_panel.add(capturaNum);
+		
+		//botones
+		JButton numC=new JButton ("C");
+		numC.setBounds(20,80,60,60);
+		cal_panel.add(numC);
+		
+		JButton numDiv=new JButton ("/");
+		numDiv.setBounds(80,80,60,60);
+		cal_panel.add(numDiv);
+		
+		JButton numMult=new JButton ("*");
+		numMult.setBounds(140,80,60,60);
+		cal_panel.add(numMult);
+		
+		JButton numRes=new JButton ("-");
+		numRes.setBounds(200,80,60,60);
+		cal_panel.add(numRes);
+		
+		JButton numSuma=new JButton ("+");
+		numSuma.setBounds(200,140,60,120);
+		cal_panel.add(numSuma);
+		
+		JButton numIgual=new JButton ("=");
+		numIgual.setBounds(200,260,60,120);
+		cal_panel.add(numIgual);
+		
+		JButton num7=new JButton ("7");
+		num7.setBounds(20,140,60,60);
+		cal_panel.add(num7);
+		
+		JButton num8=new JButton ("8");
+		num8.setBounds(80,140,60,60);
+		cal_panel.add(num8);
+		
+		JButton num9=new JButton ("9");
+		num9.setBounds(140,140,60,60);
+		cal_panel.add(num9);
+		
+		JButton num4=new JButton ("4");
+		num4.setBounds(20,200,60,60);
+		cal_panel.add(num4);
+		
+		JButton num5=new JButton ("5");
+		num5.setBounds(80,200,60,60);
+		cal_panel.add(num5);
+		
+		JButton num6=new JButton ("6");
+		num6.setBounds(140,200,60,60);
+		cal_panel.add(num6);
+		
+		JButton num1=new JButton ("1");
+		num1.setBounds(20,260,60,60);
+		cal_panel.add(num1);
+		
+		JButton num2=new JButton ("2");
+		num2.setBounds(80,260,60,60);
+		cal_panel.add(num2);
+		
+		JButton num3=new JButton ("3");
+		num3.setBounds(140,260,60,60);
+		cal_panel.add(num3);
+		
+		JButton num0=new JButton ("0");
+		num0.setBounds(20,320,120,60);
+		cal_panel.add(num0);
+		
+		JButton numPunto=new JButton (".");
+		numPunto.setBounds(140,320,60,60);
+		cal_panel.add(numPunto);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
 }
