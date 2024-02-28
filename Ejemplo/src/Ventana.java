@@ -17,6 +17,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 public class Ventana extends JFrame {
 	//constructor que define atributos basicos de mi ventana
 	public Ventana() {
@@ -37,67 +38,120 @@ public class Ventana extends JFrame {
 	}
 	public void iniciarComponentes() {
 		
-		//this.login();
+		this.login();
 		//this.registro();
 		//this.admin();
-		this.cal();
+		//this.cal();
+		
 	}
 	public void login() {
+		
+		Color colorBlue = new Color(46,134,193);
+		Color colorBlueDark = new Color(36, 113, 163);
+		Color colorYellow = new Color(244, 208, 63);
+		
+		
+		
 		JPanel login=new JPanel();
-		login.setSize(this.getWidth()/2,this.getHeight());
-		login.setBackground(Color.gray);
+		login.setSize(this.getWidth(),this.getHeight());
+		login.setBackground(colorBlue);
 		this.add(login);
 		login.setLayout(null);
+		
+		
+	
+		
 		//crear titulo "acceder"
-		JLabel login_tag=new JLabel("Acceder",0);
+		JLabel login_tag=new JLabel("User Login",0);
 		login_tag.setSize(200,60);
 		login_tag.setFont(new Font("Arial",Font.BOLD,20));
-		login_tag.setLocation(145,30);
+		login_tag.setLocation(400,30);
 		login_tag.setOpaque(true);
-		login_tag.setBackground(Color.blue);
+		login_tag.setBackground(colorBlue);
+		login_tag.setForeground(Color.white);
 		login.add(login_tag);
+		//mi cuenta
+		JLabel myAccount=new JLabel("My Account",0);
+		myAccount.setSize(200,60);
+		myAccount.setFont(new Font("Arial",Font.BOLD,20));
+		myAccount.setLocation(400,130);
+		myAccount.setOpaque(true);
+		myAccount.setBackground(colorBlueDark);
+		myAccount.setForeground(colorYellow);
+		login.add(myAccount);
 		
 		
-		//boton "ingresar"
-		JButton ingresar=new JButton ("ingresar");
-		ingresar.setBounds(165,390,170,40);
+	
+		JLabel logo =new JLabel();
+		logo.setIcon(new ImageIcon(getClass().getResource("lock1.png")));
+		logo.setBounds(325,335,24,24);
+		login.add(logo);
+		
+		JLabel logoUsuario =new JLabel();
+		logoUsuario.setIcon(new ImageIcon(getClass().getResource("user.png")));
+		logoUsuario.setBounds(325,235,24,24);
+		login.add(logoUsuario);
+		
+		//boton "login"
+		JButton ingresar=new JButton ("login");
+		ingresar.setBounds(425,500,170,40);
+		ingresar.setBackground(colorYellow);
 		login.add(ingresar);
+		//boton "sign up"
+		JButton sign=new JButton ("Sign Up");
+		sign.setBounds(425,625,170,40);
+		sign.setBackground(colorYellow);
+		login.add(sign);
+		
 		//texto "nombre de usuario"
-		JLabel userName= new JLabel("Nombre de usuario");
+		JLabel userName= new JLabel("UserName");
 		userName.setFont(new Font("Arial",Font.BOLD,15));
-		userName.setLocation(20,70);
+		userName.setLocation(350,160);
 		userName.setSize(145,100);
 		userName.setOpaque(false);
 		login.add(userName);
+		
 		//caja de texto del nombre de ususario
 		JTextField userBox=new JTextField();
-		userBox.setBounds(20,140,290,35);
+		userBox.setBounds(350,230,290,35);
 		login.add(userBox);
+		
 		//texto "contraseña"
-		JLabel password=new JLabel("Contraseña");
+		JLabel password=new JLabel("Password");
 		password.setFont(new Font("Arial",Font.BOLD,15));
-		password.setLocation(20,150);
+		password.setLocation(350,260);
 		password.setSize(145,100);
 		password.setOpaque(false);
 		login.add(password);
+		
 		 //linea de texto de la contraseña
 		JPasswordField passwordBox=new JPasswordField();
-		passwordBox.setBounds(20,220,290,35);
+		passwordBox.setBounds(350,330,290,35);
 		login.add(passwordBox);
+		
 		//recuadro "¿olvido su contraseña?"
 		JLabel forgotPassword=new JLabel("¿olvido su contraseña?");
 		forgotPassword.setFont(new Font("Arial",Font.BOLD,12));
-		forgotPassword.setBounds(180,270,200,35);
+		forgotPassword.setBounds(450,600,200,35);
 		forgotPassword.setOpaque(false);
+		forgotPassword.setForeground(Color.white);
 		login.add(forgotPassword);
 		
+		
+		
 		//recuadro tachable de "recordarme"		
-		JCheckBox recordarme=new JCheckBox("Recordarme");
+		/*JCheckBox recordarme=new JCheckBox("Recordarme");
 		recordarme.setFont(new Font("Arial",Font.BOLD,12));
 		recordarme.setBounds(20,270,100,35);
 		recordarme.setOpaque(false);
-		login.add(recordarme);
+		login.add(recordarme);*/
 		
+		JLabel plano= new JLabel();
+		plano.setBackground(colorBlueDark);
+		plano.setLocation(250,100);
+		plano.setSize(500,500);
+		plano.setOpaque(true);
+		login.add(plano);
 	}
 	
 	public void registro () {
@@ -282,7 +336,7 @@ public class Ventana extends JFrame {
 		};
 		JTable tabla=new JTable(tableData,title);
 		JScrollPane scroll=new JScrollPane (tabla);
-		scroll.setBounds(30,400,800,100);
+		scroll.setBounds(50,300,820,100);
 		admin_panel.add(scroll);
 		
 		
