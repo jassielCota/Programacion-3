@@ -1,6 +1,9 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridLayout;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -38,10 +41,63 @@ public class Ventana extends JFrame {
 	}
 	public void iniciarComponentes() {
 		
-		this.login();
+		//this.login();
 		//this.registro();
 		//this.admin();
 		//this.cal();
+		this.calculadoraly();
+	}
+	public void calculadoraly() {
+		this.setSize(450,650);
+		Color violeta =new Color(136, 78, 160);
+		
+		JPanel panel=new JPanel();
+		panel.setSize(this.getWidth(),this.getHeight());
+		panel.setBackground(Color.black);
+		panel.setLayout(new BorderLayout());
+		
+		JLabel text=new JLabel("100.00",4);
+		text.setFont(new Font("Arial",Font.BOLD,20));
+		text.setOpaque(true);
+		text.setBackground(Color.white);
+		panel.add(text,BorderLayout.NORTH);
+		
+		JPanel centro=new JPanel();
+		centro.setBackground(Color.blue);
+		centro.setLayout(new GridLayout(4,3));
+		panel.add(centro,BorderLayout.CENTER);
+		
+		String btns[]= {"7","8","9","6","5","4","3","2","1","0",".","/"};
+		for(int i=0;i<12;i++) {
+			JButton boton=new JButton(btns[i]);
+			centro.add(boton);
+		}
+		
+		JPanel east=new JPanel();
+		east.setBackground(Color.blue);
+		east.setLayout(new GridLayout(3,1));
+		panel.add(east,BorderLayout.EAST);
+		
+		String btDerecha[]= {"  +  ","  -   ","  =  "};
+		for(int i=0;i<3;i++) {
+			JButton boton=new JButton(btDerecha[i]);
+			boton.setBackground(violeta);
+			east.add(boton);
+			}
+		
+		JPanel west=new JPanel();
+		west.setBackground(Color.blue);
+		west.setLayout(new GridLayout(4,1));
+		panel.add(west,BorderLayout.WEST);
+		
+		String btIzquierda[]= {"AC","DEL","MC","M+"};
+		for(int i=0;i<4;i++) {
+			JButton boton=new JButton(btIzquierda[i]);
+			boton.setBackground(violeta);
+			west.add(boton);
+			}
+		
+		this.add(panel);
 		
 	}
 	public void login() {
@@ -104,7 +160,7 @@ public class Ventana extends JFrame {
 		login.add(sign);
 		
 		//texto "nombre de usuario"
-		JLabel userName= new JLabel("UserName");
+		JLabel userName= new JLabel("UserNameyj");
 		userName.setFont(new Font("Arial",Font.BOLD,15));
 		userName.setLocation(350,160);
 		userName.setSize(145,100);
