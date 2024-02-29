@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 
@@ -19,6 +20,9 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 public class Ventana extends JFrame {
@@ -45,58 +49,193 @@ public class Ventana extends JFrame {
 		//this.registro();
 		//this.admin();
 		//this.cal();
-		this.calculadoraly();
+		//this.calculadoraly();
+		this.calInteres();
+		
 	}
-	public void calculadoraly() {
-		this.setSize(450,650);
-		Color violeta =new Color(136, 78, 160);
+	public void calInteres() {
+		this.setSize(500,650);
 		
 		JPanel panel=new JPanel();
 		panel.setSize(this.getWidth(),this.getHeight());
 		panel.setBackground(Color.black);
+		Border bordeCentro = BorderFactory.createLineBorder(Color.white, 50); 
+		panel.setBorder(bordeCentro);
 		panel.setLayout(new BorderLayout());
 		
+		JLabel text=new JLabel("Interes");
+		text.setFont(new Font("Arial",Font.BOLD,15));
+		text.setOpaque(true);
+		text.setBackground(Color.white);
+		text.setForeground(Color.red);
+		panel.add(text,BorderLayout.NORTH);
+		
+		JPanel centro=new JPanel();
+		centro.setLayout(new GridLayout(7,1));
+		TitledBorder border= new TitledBorder("calcular interes");
+		border.setTitleJustification(TitledBorder.LEFT);
+		centro.setBackground(Color.white);
+		border.setTitlePosition(TitledBorder.TOP);
+		centro.setBorder(border);
+		panel.add(centro,BorderLayout.CENTER);
+		
+		JPanel uno= new JPanel(new FlowLayout(FlowLayout.CENTER));
+		uno.setBackground(Color.green);
+		centro.add(uno);
+		
+		JLabel capital=new JLabel("Capital",4);
+		capital.setFont(new Font("Arial",Font.BOLD,15));
+		capital.setOpaque(true);
+		capital.setBackground(Color.green);
+		uno.add(capital);
+		
+		JTextField linea1=new JTextField("");
+		linea1.setFont(new Font("Calibri",Font.BOLD,15));
+		linea1.setPreferredSize(new Dimension(150,30));
+		uno.add(linea1);
+		
+		JPanel dos= new JPanel(new FlowLayout(FlowLayout.CENTER));
+		dos.setBackground(Color.green);
+		centro.add(dos);
+		
+		JLabel tiempo=new JLabel("Tiempo",4);
+		tiempo.setFont(new Font("Arial",Font.BOLD,15));
+		tiempo.setOpaque(true);
+		tiempo.setBackground(Color.green);
+		dos.add(tiempo);
+		
+		JTextField linea2=new JTextField("");
+		linea2.setFont(new Font("Calibri",Font.BOLD,15));
+		linea2.setPreferredSize(new Dimension(150,30));
+		dos.add(linea2);
+		
+		JPanel tres= new JPanel(new FlowLayout(FlowLayout.CENTER));
+		tres.setBackground(Color.green);
+		centro.add(tres);
+		
+		JLabel tasaInteres=new JLabel("Tasa Interes",4);
+		tasaInteres.setFont(new Font("Arial",Font.BOLD,15));
+		tasaInteres.setOpaque(true);
+		tasaInteres.setBackground(Color.green);
+		tres.add(tasaInteres);
+		
+		JTextField linea3=new JTextField("");
+		linea3.setFont(new Font("Calibri",Font.BOLD,15));
+		linea3.setPreferredSize(new Dimension(150,30));
+		tres.add(linea3);
+		
+		JPanel cuatro= new JPanel(new FlowLayout(FlowLayout.CENTER));
+		cuatro.setBackground(Color.green);
+		centro.add(cuatro);
+		
+		JButton calcular=new JButton ("Calcular");
+		calcular.setBackground(Color.black);
+		calcular.setPreferredSize(new Dimension(120,30));
+		calcular.setForeground(Color.white);
+		cuatro.add(calcular);
+		
+		JButton cancelar=new JButton ("Cancelar");
+		cancelar.setBackground(Color.black);
+		cancelar.setPreferredSize(new Dimension(120,30));
+		cancelar.setForeground(Color.white);
+		cuatro.add(cancelar);
+		
+		JPanel cinco= new JPanel(new FlowLayout(FlowLayout.CENTER));
+		cinco.setBackground(Color.white);
+		centro.add(cinco);
+		
+		JPanel seis= new JPanel(new FlowLayout(FlowLayout.CENTER));
+		seis.setBackground(Color.pink);
+		centro.add(seis);
+		
+		JLabel interes=new JLabel("Interes",4);
+		interes.setFont(new Font("Arial",Font.BOLD,15));
+		interes.setOpaque(true);
+		interes.setBackground(Color.pink);
+		seis.add(interes);
+		
+		JTextField linea4=new JTextField("");
+		linea4.setFont(new Font("Calibri",Font.BOLD,15));
+		linea4.setPreferredSize(new Dimension(150,30));
+		seis.add(linea4);
+		
+		JPanel siete= new JPanel(new FlowLayout(FlowLayout.CENTER));
+		siete.setBackground(Color.pink);
+		centro.add(siete);
+		
+		JLabel monto=new JLabel("Monto",4);
+		monto.setFont(new Font("Arial",Font.BOLD,15));
+		monto.setOpaque(true);
+		monto.setBackground(Color.pink);
+		siete.add(monto);
+		
+		JTextField linea5=new JTextField("");
+		linea5.setFont(new Font("Calibri",Font.BOLD,15));
+		linea5.setPreferredSize(new Dimension(150,30));
+		siete.add(linea5);
+		
+		
+		
+		
+		
+		
+		this.add(panel);
+	}
+	public void calculadoraly() {
+		//tamaño de la ventana
+		this.setSize(450,650);
+		//colores RGB
+		Color violeta =new Color(136, 78, 160);
+		//panel principal
+		JPanel panel=new JPanel();
+		panel.setSize(this.getWidth(),this.getHeight());
+		panel.setBackground(Color.black);
+		panel.setLayout(new BorderLayout());
+		//parte superior de texto "100.00"
 		JLabel text=new JLabel("100.00",4);
 		text.setFont(new Font("Arial",Font.BOLD,20));
 		text.setOpaque(true);
 		text.setBackground(Color.white);
 		panel.add(text,BorderLayout.NORTH);
-		
+		//panel central donde iran las teclas
 		JPanel centro=new JPanel();
 		centro.setBackground(Color.blue);
 		centro.setLayout(new GridLayout(4,3));
 		panel.add(centro,BorderLayout.CENTER);
-		
+		//arreglo para diseñar botones centrales
 		String btns[]= {"7","8","9","6","5","4","3","2","1","0",".","/"};
+		//ciclo for para generar los botones centrales
 		for(int i=0;i<12;i++) {
 			JButton boton=new JButton(btns[i]);
 			centro.add(boton);
 		}
-		
+		//panel derecho 
 		JPanel east=new JPanel();
 		east.setBackground(Color.blue);
 		east.setLayout(new GridLayout(3,1));
 		panel.add(east,BorderLayout.EAST);
-		
+		//arreglo para los botones de la derecha
 		String btDerecha[]= {"  +  ","  -   ","  =  "};
+		//ciclo para generar botones de la derecha
 		for(int i=0;i<3;i++) {
 			JButton boton=new JButton(btDerecha[i]);
 			boton.setBackground(violeta);
 			east.add(boton);
 			}
-		
+		//panel izquierdo
 		JPanel west=new JPanel();
 		west.setBackground(Color.blue);
 		west.setLayout(new GridLayout(4,1));
 		panel.add(west,BorderLayout.WEST);
-		
+		//arreglo para botones izquierdos
 		String btIzquierda[]= {"AC","DEL","MC","M+"};
+		//ciclo para los botones izquierdos
 		for(int i=0;i<4;i++) {
 			JButton boton=new JButton(btIzquierda[i]);
 			boton.setBackground(violeta);
 			west.add(boton);
 			}
-		
+		//agregar al panel principal
 		this.add(panel);
 		
 	}
