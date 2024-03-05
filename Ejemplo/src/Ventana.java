@@ -1,9 +1,15 @@
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,6 +28,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -43,6 +50,52 @@ public class Ventana extends JFrame {
 		this.iniciarComponentes();	
 		this.setVisible(true);
 	}
+	@Override
+	
+	public void paint(Graphics g)
+	{
+		super.paint(g);
+		
+		Graphics2D g2d=(Graphics2D) g;
+		//asigna el color
+		g2d.setColor(Color.blue);
+		//pinta un rectangulo relleno
+		g2d.fillRect(50, 50, 200, 100);
+		//borra un area delimitada
+		g2d.clearRect(100,100,100,100);
+		//dibujar un arco
+		g2d.drawArc(100, 100, 100, 100, 0, 180);
+		//rellenar un arco
+		g2d.fillArc(200, 200, 200, 200, 0, 180);
+		//dibuja una linea
+		g2d.drawLine(30,70,770,70);
+		//dibuja un ovalo
+		g2d.drawOval(300, 400, 100, 50);
+		int xPoints[]= {100,250,300};
+		int yPoints[]= {100,200,300};
+		//dibuja un poligono
+		g2d.setColor(Color.red);
+		g2d.drawPolygon(xPoints,yPoints,3);
+		//dibujar un texto
+		g2d.setFont(new Font("Maker Felt",Font.BOLD,40));
+		g2d.drawString("hola",500,500);
+		
+		g2d.setStroke(new BasicStroke(10));
+		
+		g2d.drawRoundRect(100,200, 100, 200, 100, 50);
+		
+		
+		try {
+			BufferedImage imge;
+			imge = ImageIO.read(new File("src/lock1.png"));
+			g2d.drawImage(imge,550,550,null);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
 	public void iniciarComponentes() {
 		
 		//this.login();
@@ -50,7 +103,9 @@ public class Ventana extends JFrame {
 		//this.admin();
 		//this.cal();
 		//this.calculadoraly();
-		this.calInteres();
+		//this.calInteres();
+		this.repaint();
+		this.revalidate();
 		
 	}
 	public void calInteres() {
