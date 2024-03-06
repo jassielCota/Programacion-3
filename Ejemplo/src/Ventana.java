@@ -54,45 +54,155 @@ public class Ventana extends JFrame {
 	
 	public void paint(Graphics g)
 	{
+		Color cielo =new Color(133, 193, 233);
+		Color tierra =new Color(120, 66, 18 );
+		Color arena =new Color(248, 196, 113);
+		Color pasto =new Color(51, 102, 0);
+		Color plantas =new Color(51, 51, 0);
+		Color cercaTrasera =new Color(212, 172, 13 );
+		Color cercaD =new Color(244, 208, 63 );
+		Color gris =new Color(81, 90, 90 );
+		Color crema =new Color(255, 245, 157 );
+		Color rojo =new Color(198, 40, 40 );
+		Color grisClaro =new Color(117, 117, 117);
+		Color cafeOs =new Color(120, 66, 18);
+		Color cafePuerta =new Color(156, 100, 12);
+		
+		
+		
+		
 		super.paint(g);
 		
 		Graphics2D g2d=(Graphics2D) g;
-		//asigna el color
-		g2d.setColor(Color.blue);
-		//pinta un rectangulo relleno
-		g2d.fillRect(50, 50, 200, 100);
-		//borra un area delimitada
-		g2d.clearRect(100,100,100,100);
-		//dibujar un arco
-		g2d.drawArc(100, 100, 100, 100, 0, 180);
-		//rellenar un arco
-		g2d.fillArc(200, 200, 200, 200, 0, 180);
-		//dibuja una linea
-		g2d.drawLine(30,70,770,70);
-		//dibuja un ovalo
-		g2d.drawOval(300, 400, 100, 50);
-		int xPoints[]= {100,250,300};
-		int yPoints[]= {100,200,300};
-		//dibuja un poligono
-		g2d.setColor(Color.red);
-		g2d.drawPolygon(xPoints,yPoints,3);
-		//dibujar un texto
-		g2d.setFont(new Font("Maker Felt",Font.BOLD,40));
-		g2d.drawString("hola",500,500);
+		//background
+		g2d.setColor(cielo);
+		g2d.fillRect(0,0,1000,750);
+	
+		g2d.setColor(tierra);
+		g2d.fillRect(0,650,1000,100);
 		
-		g2d.setStroke(new BasicStroke(10));
+		g2d.setColor(arena);
+		g2d.fillRect(0,600,1000,50);
 		
-		g2d.drawRoundRect(100,200, 100, 200, 100, 50);
+		g2d.setColor(pasto);
+		g2d.fillRect(0,525,1000,75);
+		
+		g2d.setColor(plantas);
+		g2d.fillRect(0,500,1000,25);
+		
+		//cerca
+		g2d.setColor(cercaTrasera);
+		g2d.fillRect(0,350,1000,75);
+		//palets de la cerca
+		int xPoints[]= {10  ,10  ,30 ,55 ,55  };
+		int yPoints[]= {500,300 ,275,300,500};
+		g2d.setColor(cercaD);
+		g2d.fillPolygon(xPoints,yPoints,5);
+		
+		int xPoints2[]= {65,65  ,85 ,110 ,110  };
+		int yPoints2[]= {500,300 ,275,300,500};
+		g2d.setColor(cercaD);
+		g2d.fillPolygon(xPoints2,yPoints2,5);
+		
+		int xPoints3[]= {120,120  ,140 ,165 ,165 };
+		int yPoints3[]= {500,300 ,275,300,500};
+		g2d.setColor(cercaD);
+		g2d.fillPolygon(xPoints3,yPoints3,5);
+		
+		int xPoints4[]= {945,945  ,965 ,990 ,990 };
+		int yPoints4[]= {500,300 ,275,300,500};
+		g2d.setColor(cercaD);
+		g2d.fillPolygon(xPoints4,yPoints4,5);
+		
+		int xPoints5[]= {890,890  ,910 ,935 ,935 };
+		int yPoints5[]= {500,300 ,275,300,500};
+		g2d.setColor(cercaD);
+		g2d.fillPolygon(xPoints5,yPoints5,5);
+		
+		int xPoints6[]= {835,835  ,855 ,880 ,880 };
+		int yPoints6[]= {500,300 ,275,300,500};
+		g2d.setColor(cercaD);
+		g2d.fillPolygon(xPoints6,yPoints6,5);
+		
+		//piso de la casa
+		g2d.setColor(gris);
+		g2d.fillRect(170,475,658,25);
+		//pared
+		g2d.setColor(crema);
+		g2d.fillRect(190,175,620,300);
+		//chimenea
+		g2d.setColor(grisClaro);
+		g2d.fillRect(700,75,80,100);
+		
+		g2d.setColor(gris);
+		g2d.fillRect(690,75,100,25);
+		//rayas
+		g2d.setColor(cafeOs);
+		g2d.fillRect(190,225,620,5);
+		
+		g2d.setColor(cafeOs);
+		g2d.fillRect(190,275,620,5);
+		
+		g2d.setColor(cafeOs);
+		g2d.fillRect(190,325,620,5);
+		
+		g2d.setColor(cafeOs);
+		g2d.fillRect(190,375,620,5);
+		
+		g2d.setColor(cafeOs);
+		g2d.fillRect(190,425,620,5);
+		//marco de  puerta
+		g2d.setColor(cafeOs);
+		g2d.fillRect(205,200,150,275);
+		//puerta
+		g2d.setColor(cafePuerta);
+		g2d.fillRect(215,210,130,260);
+		//manija
+		g2d.setColor(Color.white);
+		g2d.fillArc(315,345, 20, 20, 0,360);
+		//marco ventana
+		g2d.setColor(rojo);
+		g2d.fillRect(600,200,130,130);
+		//cristal
+		g2d.setColor(Color.white);
+		g2d.fillRect(610,210,50,50);
+		
+		g2d.setColor(Color.white);
+		g2d.fillRect(670,210,50,50);
+		
+		g2d.setColor(Color.white);
+		g2d.fillRect(670,270,50,50);
+		
+		g2d.setColor(Color.white);
+		g2d.fillRect(610,270,50,50);
+		//repisa
+		g2d.setColor(gris);
+		g2d.fillRect(590,330,150,25);
 		
 		
-		try {
-			BufferedImage imge;
-			imge = ImageIO.read(new File("src/lock1.png"));
-			g2d.drawImage(imge,550,550,null);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		
+		
+		
+		int xPoints0[]= {150,250,900};
+		int yPoints0[]= {175,50,175};
+		g2d.setColor(rojo);
+		g2d.fillPolygon(xPoints0,yPoints0,3);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 	}
@@ -104,6 +214,7 @@ public class Ventana extends JFrame {
 		//this.cal();
 		//this.calculadoraly();
 		//this.calInteres();
+		
 		this.repaint();
 		this.revalidate();
 		
