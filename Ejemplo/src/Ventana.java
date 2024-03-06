@@ -50,10 +50,218 @@ public class Ventana extends JFrame {
 		this.iniciarComponentes();	
 		this.setVisible(true);
 	}
-	@Override
 	
-	public void paint(Graphics g)
+	@Override
+	public void paint(Graphics g) {
+		//colores
+		Color cielo =new Color(133, 193, 233);
+		Color suelo =new Color(248, 196, 113);
+		Color verde =new Color(39, 174, 96);
+		Color cobre =new Color(220, 118, 51);
+		Color azul =new Color(46, 134, 193);
+		Color grisClaro =new Color(117, 117, 117);
+		Color rosa =new Color(255, 158, 242);
+		Color tubo =new Color(0,120,6);
+		Color cafe =new Color(160, 64, 0);
+		Color cafeOscuro =new Color(110, 44, 0 );
+		
+		
+		super.paint(g);
+		Graphics2D g2d=(Graphics2D) g;
+		
+		g2d.setColor(cielo);
+		g2d.fillRect(0,0,1000,750);
+		
+		//arbusto
+		g2d.setColor(verde);
+		g2d.fillOval(50, 565, 100, 50);
+		g2d.setColor(verde);
+		g2d.fillOval(75, 550, 50, 90);
+		
+		g2d.setColor(suelo);
+		g2d.fillRect(0,600,1000,150);
+		//cuadro Flotante
+		g2d.setColor(Color.black);
+		g2d.fillRect(45,195,90,85);
+		g2d.setColor(cobre);
+		g2d.fillRect(50,200,85,85);
+		//puntos negros
+		g2d.setColor(Color.black);
+		g2d.fillRect(55,205,5,5);
+		g2d.setColor(Color.black);
+		g2d.fillRect(125,205,5,5);
+		g2d.setColor(Color.black);
+		g2d.fillRect(55,275,5,5);
+		g2d.setColor(Color.black);
+		g2d.fillRect(125,275,5,5);
+		//cuadro flotante 2
+		g2d.setColor(Color.black);
+		g2d.fillRect(200,85,95,95);
+		g2d.setColor(cobre);
+		g2d.fillRect(205,90,85,85);
+		//puntos negros
+		g2d.setColor(Color.black);
+		g2d.fillRect(210,95,5,5);
+		g2d.setColor(Color.black);
+		g2d.fillRect(280,95,5,5);
+		g2d.setColor(Color.black);
+		g2d.fillRect(210,165,5,5);
+		g2d.setColor(Color.black);
+		g2d.fillRect(280,165,5,5);
+		
+		//cuadro flotante 2
+		g2d.setColor(Color.black);
+		g2d.fillRect(290,85,95,95);
+		g2d.setColor(cobre);
+		g2d.fillRect(295,90,85,85);
+		//puntos negros
+		g2d.setColor(Color.black);
+		g2d.fillRect(300,95,5,5);
+		g2d.setColor(Color.black);
+		g2d.fillRect(370,95,5,5);
+		g2d.setColor(Color.black);
+		g2d.fillRect(300,165,5,5);
+		g2d.setColor(Color.black);
+		g2d.fillRect(370,165,5,5);
+		//rectangulo azul
+		//sombra
+		g2d.setColor(Color.black);
+		g2d.fillRect(420,320,153,280);
+		g2d.setColor(azul);
+		//contorno
+		g2d.setColor(Color.black);
+		g2d.fillRect(398,298,153,300);
+		g2d.setColor(azul);
+		g2d.fillRect(400,300,150,300);
+		//tornillos cuadro azul
+		//sombra tornillo
+		g2d.setColor(Color.black);
+		g2d.fillArc(405, 305, 17, 17, 0, 360);
+		//tornillo
+		g2d.setColor(grisClaro);
+		g2d.fillArc(405, 305, 15, 15, 0, 360);
+		//sombra tornillo
+		g2d.setColor(Color.black);
+		g2d.fillArc(525, 305, 17, 17, 0, 360);
+		//tornillo
+		g2d.setColor(grisClaro);
+		g2d.fillArc(525, 305, 15, 15, 0, 360);
+		//rectangulo rosa
+		g2d.setColor(Color.black);
+		g2d.fillRect(248,398,204,200);
+		//sombra rectangulo rosa
+		g2d.setColor(Color.black);
+		g2d.fillRect(280,450,200,150);
+		g2d.setColor(rosa);
+		g2d.fillRect(250,400,200,200);
+		
+		//sombra tornillo
+		g2d.setColor(Color.black);
+		g2d.fillArc(253, 403, 17, 17, 0, 360);
+		//tornillo
+		g2d.setColor(grisClaro);
+		g2d.fillArc(253, 403, 15, 15, 0, 360);
+		
+		g2d.setColor(Color.black);
+		g2d.fillArc(430, 403, 17, 17, 0, 360);
+		//tornillo
+		g2d.setColor(grisClaro);
+		g2d.fillArc(430, 403, 15, 15, 0, 360);
+		
+		g2d.setColor(Color.black);
+		g2d.fillArc(430, 580, 17, 17, 0, 360);
+		//tornillo
+		g2d.setColor(grisClaro);
+		g2d.fillArc(430, 580, 15, 15, 0, 360);
+		
+		g2d.setColor(Color.black);
+		g2d.fillArc(253, 580, 17, 17, 0, 360);
+		//tornillo
+		g2d.setColor(grisClaro);
+		g2d.fillArc(253, 580, 15, 15, 0, 360);
+		//imagen planta
+		try {
+			BufferedImage imge;
+			imge = ImageIO.read(new File("src/plantC.png"));
+			g2d.drawImage(imge,645,355,null);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//tuberia
+		g2d.setColor(Color.black);
+		g2d.fillRect(660,450,100,150);
+		g2d.setColor(tubo);
+		g2d.fillRect(665,450,90,150);
+		//tuberia parte superior
+		g2d.setColor(Color.black);
+		g2d.fillRect(645,445,130,50);
+		g2d.setColor(tubo);
+		g2d.fillRect(650,450,120,40);
+		
+		//rectangulo verde
+		g2d.setColor(Color.black);
+		g2d.fillRect(846,397,204,203);
+		g2d.setColor(verde);
+		g2d.fillRect(850,400,200,200);
+		
+		g2d.setColor(Color.black);
+		g2d.fillArc(855, 403, 17, 17, 0, 360);
+		//tornillo
+		g2d.setColor(grisClaro);
+		g2d.fillArc(855, 403, 15, 15, 0, 360);
+		
+		g2d.setColor(Color.black);
+		g2d.fillArc(855, 580, 17, 17, 0, 360);
+		g2d.setColor(grisClaro);
+		g2d.fillArc(855, 580, 15, 15, 0, 360);
+		
+		
+		
+		//suelo cuadriculado
+		g2d.setColor(cafe);
+		g2d.fillRect(0,650,1000,200);
+		g2d.setColor(cafeOscuro);
+		for(int i=0;i<=1000;i++) {
+			
+			g2d.fillRect(0+i,650,5,100);
+			g2d.fillRect(0,650+i,1000,5);
+			i+=30;
+			
+		}
+		
+		//cuadro flotante 4
+		g2d.setColor(Color.black);
+		g2d.fillRect(850,85,95,95);
+		g2d.setColor(cobre);
+		g2d.fillRect(855,90,85,85);
+		//puntos negros
+		g2d.setColor(Color.black);
+		g2d.fillRect(860,95,5,5);
+		g2d.setColor(Color.black);
+		g2d.fillRect(930,95,5,5);
+		g2d.setColor(Color.black);
+		g2d.fillRect(860,165,5,5);
+		g2d.setColor(Color.black);
+		g2d.fillRect(930,165,5,5);
+
+		
+		//imagen de mario
+		try {
+			BufferedImage imge;
+			imge = ImageIO.read(new File("src/mario.png"));
+			g2d.drawImage(imge,500,451,null);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	/*public void paint(Graphics g)
 	{
+		//colores
 		Color cielo =new Color(133, 193, 233);
 		Color tierra =new Color(120, 66, 18 );
 		Color arena =new Color(248, 196, 113);
@@ -69,8 +277,7 @@ public class Ventana extends JFrame {
 		Color cafePuerta =new Color(156, 100, 12);
 		
 		
-		
-		
+		//tabajo casita
 		super.paint(g);
 		
 		Graphics2D g2d=(Graphics2D) g;
@@ -205,7 +412,7 @@ public class Ventana extends JFrame {
 		
 		
 		
-	}
+	}*/
 	public void iniciarComponentes() {
 		
 		//this.login();
