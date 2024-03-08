@@ -52,7 +52,208 @@ public class Ventana extends JFrame {
 	}
 	
 	@Override
-	public void paint(Graphics g) {
+	public void paint (Graphics g) {
+		//         PANTALLA MIDE   X  800 Y  750
+		this.setSize(920,750);
+		//colores    
+		Color cielo =new Color(6, 101, 192);
+		Color suelo =new Color(210, 161, 100);
+		Color pasto =new Color(20, 148, 36);
+		Color ciliFuerte =new Color(78, 142, 176);
+		Color roca=new Color(117, 114, 118);
+		Color amarillo=new Color(225, 171, 32);
+		Color tubos=new Color(112, 106, 181);
+		Color ciliClaro=new Color(156, 198, 199);
+		Color blanco=new Color(237, 242, 254);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		super.paint(g);
+		Graphics2D g2d=(Graphics2D) g;
+		
+		
+		//cielo
+		g2d.setColor(cielo);
+		g2d.fillRect(0,0,1000,750);
+		
+		// nubes traseras 
+		g2d.setColor(blanco);
+		g2d.fillRoundRect(700, 300, 140, 35,50, 50);
+		
+		g2d.setColor(blanco);
+		g2d.fillRoundRect(750, 265, 140, 35,50, 50);
+		
+		g2d.setColor(blanco);
+		g2d.fillRoundRect(325, 595, 140, 35,50, 50);
+		g2d.setColor(blanco);
+		g2d.fillRoundRect(325, 525, 140, 35,50, 50);
+		
+		g2d.setColor(blanco);
+		g2d.fillRoundRect(200, 560, 140, 35,50, 50);
+		
+		
+		
+		//cilindros claros
+		//cilindro 1 
+		g2d.setColor(ciliClaro);
+		g2d.fillRoundRect(50, 250, 175, 750,200, 200);
+		//Focos blancos
+		g2d.setColor(blanco);
+		g2d.fillRoundRect(150, 300, 20, 30,200, 200);
+		
+		g2d.setColor(blanco);
+		g2d.fillRoundRect(150, 370, 20, 30,200, 200);
+		
+		g2d.setColor(blanco);
+		g2d.fillRoundRect(60, 430, 20, 30,200, 200);
+		//cilindro 2
+		g2d.setColor(ciliClaro);
+		g2d.fillRoundRect(400, 250, 175, 750,200, 200);
+		//Focos blancos
+		g2d.setColor(blanco);
+		g2d.fillRoundRect(420, 330, 20,30,200, 200);
+		
+		g2d.setColor(blanco);
+		g2d.fillRoundRect(480, 300, 20, 30,200, 200);
+		
+		g2d.setColor(blanco);
+		g2d.fillRoundRect(420, 430, 20,30,200, 200);
+		
+		//cilindro 3
+		g2d.setColor(ciliClaro);
+		g2d.fillRoundRect(575, 150, 175, 600,200, 200);
+		//foco blanco
+		g2d.setColor(blanco);
+		g2d.fillRoundRect(680, 200, 20,30,200, 200);
+		
+		g2d.setColor(blanco);
+		g2d.fillRoundRect(600, 300, 20, 30,200, 200);
+		
+		//Nubes delanteras 
+		
+		g2d.setColor(blanco);
+		g2d.fillRoundRect(-75, 345, 180, 35,50, 50);
+		
+		g2d.setColor(blanco);
+		g2d.fillRoundRect(250, 380, 180, 35,50, 50);
+		
+		g2d.setColor(blanco);
+		g2d.fillRoundRect(500, 415, 180, 35,50, 50);
+		
+		
+		
+		//cilindros fuertes
+		//cilindro 1 
+		g2d.setColor(ciliFuerte);
+		g2d.fillRoundRect(-50, 500, 200, 300,200, 200);
+		//cilindro 2
+		g2d.setColor(ciliFuerte);
+		g2d.fillRoundRect(400, 500, 200, 300,200, 200);
+		//cilindro 3
+		g2d.setColor(ciliFuerte);
+		g2d.fillRoundRect(600, 350, 200, 500,200, 200);
+		//focos
+		g2d.setColor(blanco);
+		g2d.fillRoundRect(650, 400, 20,30,200, 200);
+		
+		g2d.setColor(blanco);
+		g2d.fillRoundRect(720, 550, 20,30,200, 200);
+		
+		
+		
+		//suelo
+		g2d.setColor(suelo);
+		g2d.fillRect(0,650,1000,100);
+		
+		//pasto
+		g2d.setColor(pasto);
+		g2d.fillRect(0,630,1000,30);
+		
+		//rocas 
+		g2d.setColor(roca);
+		g2d.fillRoundRect(775, 580, 50, 50,20, 20);
+		
+		//rocas 
+		g2d.setColor(roca);
+		g2d.fillRoundRect(775, 530, 50, 50,20, 20);
+		
+		//rocas 
+		g2d.setColor(roca);
+		g2d.fillRoundRect(775, 480, 50, 50,20, 20);
+		
+		//rocas 
+		g2d.setColor(roca);
+		g2d.fillRoundRect(775, 430, 50, 50,20, 20);
+		
+		//rocas amarillas
+		g2d.setColor(amarillo);
+		g2d.fillRoundRect(825, 430, 50, 50,20, 20);
+		//ojos de roca amarilla
+		g2d.setColor(Color.black);
+		g2d.fillRoundRect(837, 446, 5, 20,10, 10);
+		g2d.setColor(Color.black);
+		g2d.fillRoundRect(855, 446, 5, 20,10, 10);
+		
+		//rocas  amarillas
+		g2d.setColor(amarillo);
+		g2d.fillRoundRect(875, 430, 50, 50,20, 20);
+		
+		try {
+			BufferedImage imge;
+			imge = ImageIO.read(new File("src/plantC.png"));
+			g2d.drawImage(imge,430,425,null);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+
+		//Tubos
+		//tubo 1
+		g2d.setColor(Color.black);
+		g2d.fillRect(448, 525, 95, 105);
+		g2d.setColor(tubos);
+		g2d.fillRect(450, 530, 90, 100);
+		
+		g2d.setColor(Color.black);
+		g2d.fillRect(432, 513, 125, 35);
+		g2d.setColor(tubos);
+		g2d.fillRect(435, 515, 120, 30);
+		
+		
+		//tubo 2
+		g2d.setColor(Color.black);
+		g2d.fillRect(845, 525, 95, 105);
+		g2d.setColor(tubos);
+		g2d.fillRect(848, 530, 90, 100);
+		
+		g2d.setColor(Color.black);
+		g2d.fillRect(837, 513, 125, 35);
+		g2d.setColor(tubos);
+		g2d.fillRect(840, 515, 120, 30);
+		
+		
+		
+				
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	/*public void paint(Graphics g) {
 		//colores
 		Color cielo =new Color(133, 193, 233);
 		Color suelo =new Color(248, 196, 113);
@@ -257,6 +458,7 @@ public class Ventana extends JFrame {
 		}
 		
 	}
+	*/
 	
 	
 	/*public void paint(Graphics g)
