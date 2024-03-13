@@ -612,16 +612,65 @@ public class Ventana extends JFrame {
 	public void iniciarComponentes() {
 		
 		//this.login();
-		this.registro();
+		//this.registro();
 		//this.admin();
 		//this.cal();
 		//this.calculadoraly();
 		//this.calInteres();
+		this.botones();
 		
 		this.repaint();
 		this.revalidate();
 		
 	}
+	
+	public void botones() {
+		this.setSize(500,750);
+		Color colorBlue = new Color(46,134,193);
+		Color colorYellow = new Color(244, 208, 63);
+		
+		JPanel btPanel=new JPanel();
+		btPanel.setSize(this.getWidth(),this.getHeight());
+		btPanel.setBackground(colorBlue);
+		btPanel.setLayout(null);
+		
+		JButton click=new JButton ("click me");
+		click.setBounds(50,530,400,70);
+		click.setBackground(colorYellow);
+		btPanel.add(click);
+		
+		click.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			int x=(int)Math.floor(Math.random()*450+1);
+			int y=(int)Math.floor(Math.random()*650+1);
+			
+			int w=(int)Math.floor(Math.random()*120+1);
+			int h=(int)Math.floor(Math.random()*120+1);
+			
+			int c1=(int)Math.floor(Math.random()*120+1);
+			int c2=(int)Math.floor(Math.random()*120+1);
+			int c3=(int)Math.floor(Math.random()*120+1);
+			
+			JButton otroClick=new JButton ("click me");
+			otroClick.setBounds(x,y,w,h);
+			
+			otroClick.setBackground(new Color(c1,c2,c3));
+			btPanel.add(otroClick);
+			
+			getContentPane().repaint();
+			getContentPane().revalidate();
+			
+				
+			}
+			
+		});
+		
+		this.add(btPanel);
+		
+	}
+	
 	public void calInteres() {
 		this.setSize(500,650);
 		
