@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -653,19 +654,32 @@ public class Ventana extends JFrame {
 			int c2=(int)Math.floor(Math.random()*120+1);
 			int c3=(int)Math.floor(Math.random()*120+1);
 			
-			JButton otroClick=new JButton ("click me");
+			JButton otroClick=new JButton (c1+","+c2+","+c3);
 			otroClick.setBounds(x,y,w,h);
-			
 			otroClick.setBackground(new Color(c1,c2,c3));
 			btPanel.add(otroClick);
+			
+			otroClick.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					JOptionPane.showMessageDialog(null,"el numero es: "+c1+","+c2+","+c3,"Inane warning",JOptionPane.WARNING_MESSAGE);
+					
+				}
+				
+			});
 			
 			getContentPane().repaint();
 			getContentPane().revalidate();
 			
+			
+			
 				
 			}
 			
+			
 		});
+		
 		
 		this.add(btPanel);
 		
