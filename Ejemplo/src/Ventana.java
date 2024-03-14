@@ -719,7 +719,12 @@ public class Ventana extends JFrame {
 		otroClick.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null,"el numero es: "+c1+","+c2+","+c3,"Inane warning",JOptionPane.WARNING_MESSAGE);
+				JButton yo =((JButton)e.getSource());
+				btPanel.remove(yo);
+				getContentPane().repaint();
+				
+				
+				//JOptionPane.showMessageDialog(null,"el numero es: "+c1+","+c2+","+c3,"Inane warning",JOptionPane.WARNING_MESSAGE);
 				
 			}
 		
