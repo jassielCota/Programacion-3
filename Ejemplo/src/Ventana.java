@@ -9,9 +9,12 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -52,6 +55,7 @@ public class Ventana extends JFrame {
 		//llamar al metodo iniciar componentes
 		this.iniciarComponentes();	
 		this.setVisible(true);
+		
 	}
 	
 	//@Override
@@ -626,6 +630,8 @@ public class Ventana extends JFrame {
 	}
 	
 	public void botones() {
+		
+		
 		this.setSize(500,750);
 		Color colorBlue = new Color(46,134,193);
 		Color colorYellow = new Color(244, 208, 63);
@@ -640,49 +646,96 @@ public class Ventana extends JFrame {
 		click.setBackground(colorYellow);
 		btPanel.add(click);
 		
-		click.addActionListener(new ActionListener() {
+		btPanel.addMouseListener(new MouseListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-			int x=(int)Math.floor(Math.random()*450+1);
-			int y=(int)Math.floor(Math.random()*650+1);
-			
-			int w=(int)Math.floor(Math.random()*120+1);
-			int h=(int)Math.floor(Math.random()*120+1);
-			
-			int c1=(int)Math.floor(Math.random()*120+1);
-			int c2=(int)Math.floor(Math.random()*120+1);
-			int c3=(int)Math.floor(Math.random()*120+1);
-			
-			JButton otroClick=new JButton (c1+","+c2+","+c3);
-			otroClick.setBounds(x,y,w,h);
-			otroClick.setBackground(new Color(c1,c2,c3));
-			btPanel.add(otroClick);
-			
-			otroClick.addActionListener(new ActionListener() {
+			public void mouseClicked(MouseEvent e) {
+				Random rand=new Random();
+				int x = e.getX();
+                int y = e.getY();
 
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					JOptionPane.showMessageDialog(null,"el numero es: "+c1+","+c2+","+c3,"Inane warning",JOptionPane.WARNING_MESSAGE);
-					
-				}
-				
-			});
-			
-			getContentPane().repaint();
-			getContentPane().revalidate();
-			
-			
-			
+                int c1=(int)Math.floor(Math.random()*120+1);
+        		int c2=(int)Math.floor(Math.random()*120+1);
+        		int c3=(int)Math.floor(Math.random()*120+1);
+                JButton boton = new JButton(c1+","+c2+","+c3);
+                boton.setLocation(x,y);
+                boton.setSize(rand.nextInt(100),rand.nextInt(100));
+                boton.setBackground(new Color(c1,c2,c3));
+                boton.setOpaque(true);
+                btPanel.add(boton);
+                
+                boton.addActionListener(new ActionListener() {
+        			@Override
+        			public void actionPerformed(ActionEvent e) {
+        				JOptionPane.showMessageDialog(null,"el numero es: "+c1+","+c2+","+c3,"Inane warning",JOptionPane.WARNING_MESSAGE);
+        			}
+        			});
+                
+                
+                btPanel.revalidate();
+                btPanel.repaint();
 				
 			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+			}
 			
+			
+		
+	});
+		
+		click.addActionListener(new ActionListener() {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		int x=(int)Math.floor(Math.random()*450+1);
+		int y=(int)Math.floor(Math.random()*650+1);
+		
+		int w=(int)Math.floor(Math.random()*120+1);
+		int h=(int)Math.floor(Math.random()*120+1);
+		
+		int c1=(int)Math.floor(Math.random()*120+1);
+		int c2=(int)Math.floor(Math.random()*120+1);
+		int c3=(int)Math.floor(Math.random()*120+1);
+		
+		JButton otroClick=new JButton (c1+","+c2+","+c3);
+		otroClick.setBounds(x,y,w,h);
+		otroClick.setBackground(new Color(c1,c2,c3));
+		btPanel.add(otroClick);
+		
+		otroClick.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,"el numero es: "+c1+","+c2+","+c3,"Inane warning",JOptionPane.WARNING_MESSAGE);
+				
+			}
+		
 			
 		});
 		
 		
-		this.add(btPanel);
+		getContentPane().repaint();
+		getContentPane().revalidate();
 		
+			
+			
+				
+			}
+		});
+		this.add(btPanel);	
 	}
 	
 	public void calInteres() {
@@ -805,11 +858,7 @@ public class Ventana extends JFrame {
 		linea5.setFont(new Font("Calibri",Font.BOLD,15));
 		linea5.setPreferredSize(new Dimension(150,30));
 		siete.add(linea5);
-		
-		
-		
-		
-		
+	
 		
 		this.add(panel);
 	}
@@ -878,15 +927,11 @@ public class Ventana extends JFrame {
 		Color colorYellow = new Color(244, 208, 63);
 		
 		
-		
 		JPanel login=new JPanel();
 		login.setSize(this.getWidth(),this.getHeight());
 		login.setBackground(colorBlue);
 		this.add(login);
 		login.setLayout(null);
-		
-		
-	
 		
 		//crear titulo "acceder"
 		JLabel login_tag=new JLabel("User Login",0);
@@ -906,8 +951,6 @@ public class Ventana extends JFrame {
 		myAccount.setBackground(colorBlueDark);
 		myAccount.setForeground(colorYellow);
 		login.add(myAccount);
-		
-		
 	
 		JLabel logo =new JLabel();
 		logo.setIcon(new ImageIcon(getClass().getResource("lock1.png")));
@@ -929,8 +972,6 @@ public class Ventana extends JFrame {
 		sign.setBounds(425,625,170,40);
 		sign.setBackground(colorYellow);
 		
-		
-			
 		login.add(sign);
 		
 		//texto "nombre de usuario"
@@ -1179,11 +1220,7 @@ public class Ventana extends JFrame {
 			}
 			
 		});
-		
-		
-		
-		
-				
+			
 		
 	}
 	
@@ -1259,15 +1296,6 @@ public class Ventana extends JFrame {
 		JScrollPane scroll=new JScrollPane (tabla);
 		scroll.setBounds(50,300,820,100);
 		admin_panel.add(scroll);
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 	}
 
@@ -1356,16 +1384,6 @@ public class Ventana extends JFrame {
 		JButton numPunto=new JButton (".");
 		numPunto.setBounds(140,320,60,60);
 		cal_panel.add(numPunto);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 	}
 }
