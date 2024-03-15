@@ -55,6 +55,7 @@ public class Ventana extends JFrame {
 		//llamar al metodo iniciar componentes
 		this.iniciarComponentes();	
 		this.setVisible(true);
+
 		
 	}
 	
@@ -687,6 +688,13 @@ public class Ventana extends JFrame {
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
+				int c1=(int)Math.floor(Math.random()*120+1);
+        		int c2=(int)Math.floor(Math.random()*120+1);
+        		int c3=(int)Math.floor(Math.random()*120+1);
+        		btPanel.setBackground(new Color(c1,c2,c3));
+				
+				
+        	
 			}
 
 			@Override
