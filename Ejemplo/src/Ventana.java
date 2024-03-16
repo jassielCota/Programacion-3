@@ -9,6 +9,8 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -55,6 +57,8 @@ public class Ventana extends JFrame {
 		//llamar al metodo iniciar componentes
 		this.iniciarComponentes();	
 		this.setVisible(true);
+		
+		
 
 		
 	}
@@ -641,6 +645,7 @@ public class Ventana extends JFrame {
 		btPanel.setSize(this.getWidth(),this.getHeight());
 		btPanel.setBackground(colorBlue);
 		btPanel.setLayout(null);
+		btPanel.setFocusable(true);
 		
 		JButton click=new JButton ("click me");
 		click.setBounds(50,530,400,70);
@@ -701,9 +706,35 @@ public class Ventana extends JFrame {
 			public void mouseExited(MouseEvent e) {
 			}
 			
-			
-		
+	
 	});
+		btPanel.addKeyListener(new KeyListener(){
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+			System.out.println(e.getKeyCode()+""+e.getKeyChar());
+			
+			if(e.getKeyCode()==87);
+			
+			btPanel.removeAll();
+			getContentPane().repaint();
+			getContentPane().revalidate();
+				
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	
 		
 		click.addActionListener(new ActionListener() {
 
@@ -742,14 +773,13 @@ public class Ventana extends JFrame {
 		
 		getContentPane().repaint();
 		getContentPane().revalidate();
-		
-			
-			
 				
 			}
 		});
 		this.add(btPanel);	
 	}
+	
+	
 	
 	public void calInteres() {
 		this.setSize(500,650);
