@@ -40,8 +40,10 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
+import java.awt.Component;
 public class Ventana extends JFrame {
 	//constructor que define atributos basicos de mi ventana
+	JPanel btPanel=new JPanel();
 	public Ventana() {
 		
 		this.setSize(1000,750);
@@ -641,7 +643,7 @@ public class Ventana extends JFrame {
 		Color colorBlue = new Color(46,134,193);
 		Color colorYellow = new Color(244, 208, 63);
 		
-		JPanel btPanel=new JPanel();
+
 		btPanel.setSize(this.getWidth(),this.getHeight());
 		btPanel.setBackground(colorBlue);
 		btPanel.setLayout(null);
@@ -708,7 +710,7 @@ public class Ventana extends JFrame {
 			
 	
 	});
-		btPanel.addKeyListener(new KeyListener(){
+			btPanel.addKeyListener(new KeyListener(){
 
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -720,12 +722,29 @@ public class Ventana extends JFrame {
 			public void keyPressed(KeyEvent e) {
 			System.out.println(e.getKeyCode()+""+e.getKeyChar());
 			
-			if(e.getKeyCode()==87);
+			if(e.getKeyCode() == 8) {
+				btPanel.removeAll();
+				getContentPane().repaint();
+				getContentPane().revalidate();	
 			
-			btPanel.removeAll();
-			getContentPane().repaint();
-			getContentPane().revalidate();
+			} if(e.getKeyCode()==87)
+			{
+				Component[] elementos=btPanel.getComponents();
+				for(int i=0; i<elementos.length; i++)
+				{
+					if(elementos[i].getClass().toString().equals("class javax.swing.JButton"))
+					{
+						JButton btn=((JButton) elementos[i]);
+						btn.setSize(btn.getHeight()+10,btn.getWidth()+10);
+
+						getContentPane().repaint();
+						getContentPane().revalidate();
+					}
+				}
 				
+			}
+                btPanel.repaint();
+                btPanel.revalidate();
 			}
 
 			@Override
@@ -733,6 +752,7 @@ public class Ventana extends JFrame {
 				// TODO Auto-generated method stub
 				
 			}
+			
 		});
 	
 		
