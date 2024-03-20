@@ -727,7 +727,8 @@ public class Ventana extends JFrame {
 				getContentPane().repaint();
 				getContentPane().revalidate();	
 			
-			} if(e.getKeyCode()==87)
+			} 
+			if(e.getKeyCode()==87)
 			{
 				Component[] elementos=btPanel.getComponents();
 				for(int i=0; i<elementos.length; i++)
@@ -741,6 +742,89 @@ public class Ventana extends JFrame {
 						getContentPane().revalidate();
 					}
 				}
+			}
+				if(e.getKeyCode()==83)
+				{
+					Component[] elementosr=btPanel.getComponents();
+					for(int i=0; i<elementosr.length; i++)
+					{
+						if(elementosr[i].getClass().toString().equals("class javax.swing.JButton"))
+						{
+							JButton btn=((JButton) elementosr[i]);
+							btn.setSize(btn.getHeight()-10,btn.getWidth()-10);
+
+							getContentPane().repaint();
+							getContentPane().revalidate();
+						} 
+					}
+
+				}
+				if(e.getKeyCode()==38)
+				{
+					Component[] elementosr=btPanel.getComponents();
+					for(int i=0; i<elementosr.length; i++)
+					{
+						if(elementosr[i].getClass().toString().equals("class javax.swing.JButton"))
+						{
+							JButton btn=((JButton) elementosr[i]);
+							btn.setLocation(btn.getX(),btn.getY()-10);
+
+							getContentPane().repaint();
+							getContentPane().revalidate();
+						} 
+					}
+
+				}
+				if(e.getKeyCode()==40)
+				{
+					Component[] elementosr=btPanel.getComponents();
+					for(int i=0; i<elementosr.length; i++)
+					{
+						if(elementosr[i].getClass().toString().equals("class javax.swing.JButton"))
+						{
+							JButton btn=((JButton) elementosr[i]);
+							btn.setLocation(btn.getX(),btn.getY()+10);
+
+							getContentPane().repaint();
+							getContentPane().revalidate();
+						} 
+					}
+
+				}
+				if(e.getKeyCode()==37)
+				{
+					Component[] elementosr=btPanel.getComponents();
+					for(int i=0; i<elementosr.length; i++)
+					{
+						if(elementosr[i].getClass().toString().equals("class javax.swing.JButton"))
+						{
+							JButton btn=((JButton) elementosr[i]);
+							btn.setLocation(btn.getX()-10,btn.getY());
+
+							getContentPane().repaint();
+							getContentPane().revalidate();
+						} 
+					}
+
+				}
+				if(e.getKeyCode()==39)
+				{
+					Component[] elementosr=btPanel.getComponents();
+					for(int i=0; i<elementosr.length; i++)
+					{
+						if(elementosr[i].getClass().toString().equals("class javax.swing.JButton"))
+						{
+							JButton btn=((JButton) elementosr[i]);
+							btn.setLocation(btn.getX()+10,btn.getY());
+
+							getContentPane().repaint();
+							getContentPane().revalidate();
+						} 
+					}
+					
+				}
+				{
+				
 				
 			}
                 btPanel.repaint();
@@ -753,7 +837,9 @@ public class Ventana extends JFrame {
 				
 			}
 			
+			
 		});
+
 	
 		
 		click.addActionListener(new ActionListener() {
