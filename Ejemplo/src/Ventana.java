@@ -623,13 +623,13 @@ public class Ventana extends JFrame {
 	}*/
 	public void iniciarComponentes() {
 		
-		//this.login();
+		this.login();
 		//this.registro();
 		//this.admin();
 		//this.cal();
 		//this.calculadoraly();
 		//this.calInteres();
-		this.botones();
+		//this.botones();
 		
 		this.repaint();
 		this.revalidate();
